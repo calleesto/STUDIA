@@ -1,0 +1,102 @@
+#!/bin/bash -f
+
+filename=""
+directory="$HOME"
+filetype=""
+filesize=""
+content=""
+filefound=""
+
+show_interface() {
+    clear
+    echo "1. File name: $filename"
+    echo "2. Directory: $directory"
+    echo "3. File type: $filetype"
+    echo "4. File size: $filesize"
+    echo "5. File content: $content"
+    echo "6. Search"
+    echo "7. Finish"
+    
+    if [ -n "$filefound" ]; then
+        echo "File found:"
+        echo "$filefound"
+    fi
+}
+
+search() {
+    local command="find \"$directory\""
+    
+    if [ -n "$filename" ]; then
+        command="$command -name \"$filename\""
+    fi
+
+    if [ -n "$filetype" ]; then
+        case $filetype in
+            "regular")
+                command="$command -type f"
+                ;;
+            "directory")
+                command="$command -type d"
+                ;;
+            "symbolic")
+                command="$command -type l"
+                ;;
+        esac
+    fi
+    
+    if [ -n "$filesize" ]; then
+        command="$command -size ${filesize}c"       
+    fi
+    
+    if [ -n "$content" ]; then
+        command="$command -type f -exec grep -l \"$content\" {} \\;"
+    fi
+    
+    filefound=$(eval $command) # 2>/dev/null - ignore errors
+}
+
+while true; do
+    show_interface
+    read option
+    
+    case $option in
+        1)
+            echo -n "Enter filename: "
+            read filename
+            ;;
+        2)
+            echo -n "Enter directory: "
+            read directory_input
+            if [ -d "$directory_input" ]; then
+                directory="$directory_input"
+            else
+                echo "Directory doesnt exist"
+                read
+            fi
+            ;;
+        3)
+            echo -n "Enter file type: "
+            read filetype
+            ;;
+        4)
+            echo -n "Enter file size: "
+            read filesize
+            ;;
+        5)
+            echo -n "Enter file content: "
+            read content
+            ;;
+        6)
+            search
+            read
+            ;;
+        7)
+            clear
+            exit 0
+            ;;
+        *)
+            echo "enter 1-7"
+            read
+            ;;
+    esac
+done

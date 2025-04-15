@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Ask for user input
+name=$(zenity --entry --title="Your Name" --text="What's your name?")
+
+# Show the input back in a message box
+zenity --info --title="Hello!" --text="Nice to meet you, $name!"

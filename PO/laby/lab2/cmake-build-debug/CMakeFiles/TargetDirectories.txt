@@ -1,0 +1,3 @@
+/Users/calleesto/Desktop/STUDIA/PO/laby/lab2/cmake-build-debug/CMakeFiles/YourExecutableName.dir
+/Users/calleesto/Desktop/STUDIA/PO/laby/lab2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/calleesto/Desktop/STUDIA/PO/laby/lab2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

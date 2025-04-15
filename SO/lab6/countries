@@ -1,0 +1,24 @@
+#!/bin/bash
+file="/Users/calleesto/Desktop/STUDIA/SO/lab6/countries.csv"
+output="/Users/calleesto/Desktop/STUDIA/SO/lab6/countries.json"
+
+grep -E '^[^,]*,.*EUROPE.*,' "$file" | awk -F ',' '
+BEGIN { printf "[\n" }
+{
+    country = $1;
+    population = $3;
+    area = $4;
+
+    printf "  { \"country\": \"%s\", \"population\": %s, \"area\": %s },\n", country, population, area
+}
+END { printf "]" }
+' > "$output"
+
+cat "$output"
+
+
+
+
+
+
+

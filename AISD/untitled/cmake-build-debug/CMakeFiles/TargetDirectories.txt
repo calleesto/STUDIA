@@ -1,0 +1,3 @@
+/Users/calleesto/Desktop/STUDIA/AISD/untitled/cmake-build-debug/CMakeFiles/untitled.dir
+/Users/calleesto/Desktop/STUDIA/AISD/untitled/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/calleesto/Desktop/STUDIA/AISD/untitled/cmake-build-debug/CMakeFiles/rebuild_cache.dir

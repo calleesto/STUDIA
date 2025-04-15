@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "Podaj tekst do sprawdzenia: "
+read text
+
+for word in $text; do
+# -q checks if the word exists and doesnt suppresses all the output
+# -w checks if the word is a whole word
+# -i ignores the case
+
+# -n suppresses the newline character
+# -e starts color formatting
+cleaned_word=$(echo "$word" | tr -d '[:punct:]')
+
+    if grep -iqw "$cleaned_word" /Users/calleesto/Desktop/STUDIA/SO/lab5/words.txt; then
+        echo -en "$word "
+    else
+        echo -en "\033[31m$word\033[0m "
+    fi
+done
+
+#An operating system is syyystem software that manages computer hardware and software resources, and proddvides common services for computer programs

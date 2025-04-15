@@ -1,0 +1,5 @@
+# ninja log v6
+1	485	1742853112922971803	CMakeFiles/YourExecutableName.dir/main.cpp.o	551b58209664aa68
+3	350	1742853202913379434	CMakeFiles/YourExecutableName.dir/Book.cpp.o	609274d53702eab8
+3	350	1742853202914257098	CMakeFiles/YourExecutableName.dir/Library.cpp.o	61b2000b87e1f6d2
+351	454	1742853203261268896	YourExecutableName	20b39526f0878f4c

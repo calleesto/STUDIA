@@ -1,0 +1,18 @@
+#!/bin/bash
+
+for email in $(cat /Users/calleesto/Desktop/STUDIA/SO/lab6/mail.txt); do 
+    # checks basic email format
+    if [[ $email =~ ^[a-z]+([.][a-z]+)*@[a-z]+([.][a-z]+)+$ ]]; then
+        # no dots in the start or in the end
+        if [[ ! $email =~ ^\. && ! $email =~ \.$ ]]; then
+            # no consecutive dots
+            if [[ ! $email =~ \.[.]+ ]]; then
+                # domain ends with two letters at least
+                if [[ ${email##*.} =~ [a-z]{2,} ]]; then
+                    echo "$email"
+                fi
+            fi
+        fi
+    fi
+done
+
